@@ -1,27 +1,66 @@
-## Laravel PHP Framework
+# Laravel on Bluemix
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://laravel-on-bluemix.mybluemix.net/)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+This is boilerplate for working with Laravel on Bluemix.
+You can fork it for your own purpose.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Things I change
+### manifest.yml
 
-## Official Documentation
+```sh
+  env:
+    APP_ENV: production
+    APP_DEBUG: false
+    APP_KEY: SomeRandomString
+```
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+### .bp-config/options.json
+```sh
+  "PHP_VERSION": "{PHP_56_LATEST}",
+  "COMPOSER_VENDOR_DIR": "vendor",
+  "COMPOSER_VERSION": "latest",
+  "WEBDIR": "public",
+  "PHP_EXTENSIONS": [
+    "mcrypt",
+    "mbstring",
+    "mysqli",
+    "openssl",
+    "pdo",
+    "pdo_mysql",
+    "tokenizer",
+    "fileinfo"
+```
 
-## Contributing
+### .cfignore
+```sh
+  composer.lock
+  vendor/
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### composer.json
+```sh
+  "post-install-cmd": [
+    ........
+    "mkdir -p /tmp/app/bootstrap/cache",
+    "mkdir -p /tmp/app/storage/framework/sessions",
+    "mkdir -p /tmp/app/storage/framework/views",
+    "mkdir -p /tmp/app/storage/framework/cache",
+    ........
+  ],
+  "post-update-cmd": [
+    ........
+    "mkdir -p /tmp/app/bootstrap/cache",
+    "mkdir -p /tmp/app/storage/framework/sessions",
+    "mkdir -p /tmp/app/storage/framework/views",
+    "mkdir -p /tmp/app/storage/framework/cache",
+    ........
+  ]
+```
 
-## Security Vulnerabilities
+### Feedback
+If you like what you see, then please send me a tweet @tarikgan;
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you've any better idea to implement and deploy Laravel on Bluemix, then please post an issue of create a pull request.
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Have an awesome day!
