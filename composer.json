@@ -36,10 +36,18 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "mkdir -p /tmp/app/bootstrap/cache",
+            "mkdir -p /tmp/app/storage/framework/sessions",
+            "mkdir -p /tmp/app/storage/framework/views",
+            "mkdir -p /tmp/app/storage/framework/cache",
             "php artisan optimize"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "mkdir -p /tmp/app/bootstrap/cache",
+            "mkdir -p /tmp/app/storage/framework/sessions",
+            "mkdir -p /tmp/app/storage/framework/views",
+            "mkdir -p /tmp/app/storage/framework/cache",
             "php artisan optimize"
         ]
     },
