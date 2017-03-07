@@ -1,0 +1,16 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: laravel-on-bluemix
+  host: laravel-on-bluemix
+  buildpack: https://github.com/cloudfoundry/php-buildpack
+  disk_quota: 1024M
+  timeout: 60
+  env:
+    APP_ENV: production
+    APP_DEBUG: false
+    APP_KEY: l7NcbDb0mMNpvAHQHQy7rUmemQsOZbO8
+  services:
+    - laravel-on-bluemix-mysql

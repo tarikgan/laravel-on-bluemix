@@ -1,0 +1,16 @@
+{
+  "PHP_VERSION": "{PHP_56_LATEST}",
+  "COMPOSER_VENDOR_DIR": "vendor",
+  "COMPOSER_VERSION": "latest",
+  "WEBDIR": "public",
+  "PHP_EXTENSIONS": [
+    "mcrypt",
+    "mbstring",
+    "mysqli",
+    "openssl",
+    "pdo",
+    "pdo_mysql",
+    "tokenizer",
+    "fileinfo"
+  ]
+}
